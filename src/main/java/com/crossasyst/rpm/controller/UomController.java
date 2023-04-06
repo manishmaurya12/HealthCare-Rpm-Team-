@@ -31,7 +31,7 @@ public class UomController {
     @ApiResponse(responseCode = "404", description = "Not found")
     @ApiResponse(responseCode = "500", description = "System error")
     @GetMapping(path = "/uoms", produces = MediaType.APPLICATION_JSON_VALUE)
-    private ResponseEntity<List<UomRequest>> getAllUom() {
+    public ResponseEntity<List<UomRequest>> getAllUom() {
         List<UomRequest> uomRequests = uomService.findAllUom();
         return new ResponseEntity<>(uomRequests, HttpStatus.OK);
     }

@@ -33,9 +33,5 @@ public class PatientObsService {
 
         log.info("uoms id {}",patientObsEntity.getPatientObsId());
         return patientObsResponse;
-
     }
-//    Uom uom = new Uom();
-//        uom.setCode(uomCode);
-//        patientObs.setUom(uom);
 }

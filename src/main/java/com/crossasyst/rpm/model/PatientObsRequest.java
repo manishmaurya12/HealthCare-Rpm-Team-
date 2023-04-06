@@ -1,6 +1,5 @@
 package com.crossasyst.rpm.model;
 
-import com.crossasyst.rpm.entity.UomEntity;
 import lombok.*;
 
 @Data
@@ -9,6 +8,4 @@ import lombok.*;
 @NoArgsConstructor
 public class PatientObsRequest {
     private int value;
-
-
 }
