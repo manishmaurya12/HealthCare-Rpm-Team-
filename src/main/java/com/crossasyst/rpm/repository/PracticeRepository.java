@@ -18,9 +18,9 @@ public interface PracticeRepository extends JpaRepository<PracticeEntity, Long> 
     @Query("UPDATE PracticeEntity SET active = false WHERE practiceId = ?1")
     void deleteById(Long practiceId);
 
-    @Query(value = "SELECT * FROM practice p WHERE p.enterprise_id = ?1 AND p.active = '0' ", nativeQuery = true)
+    @Query(value = "SELECT * FROM practice p WHERE p.enterprise_id = ?1 AND p.active = '1' ", nativeQuery = true)
     List<PracticeEntity> findByEnterpriseId(Long enterpriseId);
 
-    @Query(value = "SELECT * FROM practice p WHERE p.practice_id = ?1 AND p.active = '0' ", nativeQuery = true)
+    @Query(value = "SELECT * FROM practice p WHERE p.practice_id = ?1 AND p.active = '1' ", nativeQuery = true)
     Optional<PracticeEntity> findById(Long practiceId);
 }

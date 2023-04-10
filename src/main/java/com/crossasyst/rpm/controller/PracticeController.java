@@ -50,8 +50,8 @@ public class PracticeController {
     @ApiResponse(responseCode = "404", description = "Not found")
     @ApiResponse(responseCode = "500", description = "System error")
     @GetMapping(path = "/practices/{practiceId}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<PracticeRequest> findPractices(@PathVariable Long practiceId) {
-        PracticeRequest practiceRequest = practiceService.findPractices(practiceId);
+    public ResponseEntity<PracticeRequest> getPractice(@PathVariable Long practiceId) {
+        PracticeRequest practiceRequest = practiceService.getPractice(practiceId);
         return new ResponseEntity<>(practiceRequest, HttpStatus.OK);
     }
 
@@ -59,9 +59,9 @@ public class PracticeController {
     @ApiResponse(responseCode = "400", description = "Invalid request")
     @ApiResponse(responseCode = "404", description = "Not found")
     @ApiResponse(responseCode = "500", description = "System error")
-    @PutMapping(path = "/practices/{practiceId}", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<String> updatePractice(@PathVariable Long practiceId, @RequestBody PracticeRequest practiceRequest) {
-        practiceService.updatePractice(practiceId, practiceRequest);
+    @PutMapping(path = "/enterprise/{enterpriseId}/practices/{practiceId}", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<String> updatePractice(@PathVariable Long practiceId,Long enterpriseId, @RequestBody PracticeRequest practiceRequest) {
+        practiceService.updatePractice(practiceId,enterpriseId ,practiceRequest);
         return new ResponseEntity<>("Practice updated successfully", HttpStatus.OK);
     }
 
